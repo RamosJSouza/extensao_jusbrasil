@@ -49,6 +49,21 @@ class ExtractorUI {
             this.showStatus('Extraindo conteúdo...', 'info');
 
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+            
+            // Verifica se a URL atual é do JusBrasil
+            if (!tab.url.includes('jusbrasil.com.br')) {
+                throw new Error('Esta extensão só funciona em páginas do JusBrasil');
+            }
+
+            // Injeta o content script se necessário
+            await chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                files: ['content.js']
+            });
+
+            // Pequena pausa para garantir que o script foi carregado
+            await new Promise(resolve => setTimeout(resolve, 100));
+
             const response = await this.sendMessageToTab(tab.id, {
                 action: 'extract',
                 extractionType,
@@ -63,6 +78,7 @@ class ExtractorUI {
                 throw new Error(response?.error || 'Erro ao extrair conteúdo');
             }
         } catch (error) {
+            console.error('Erro:', error);
             this.showStatus(error.message, 'error');
             this.elements.downloadBtn.disabled = true;
         } finally {
@@ -93,6 +109,7 @@ class ExtractorUI {
             this.downloadFile(this.extractedHTML, filename, 'text/html');
             this.showStatus('Arquivo salvo!', 'success');
         } catch (error) {
+            console.error('Erro ao salvar:', error);
             this.showStatus('Erro ao salvar o arquivo', 'error');
         }
     }
@@ -120,66 +137,4 @@ class ExtractorUI {
 // Inicializa a UI quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', () => {
     new ExtractorUI();
-    
-    extractionTypeSelect.addEventListener('change', function() {
-        customTextContainer.style.display = this.value === 'custom' ? 'block' : 'none';
-    });
-    
-    extractBtn.addEventListener('click', function() {
-        const extractionType = extractionTypeSelect.value;
-        const customText = customTextInput.value;
-        
-        if (extractionType === 'custom' && !customText) {
-            showStatus('Por favor, insira um texto para buscar', 'error');
-            return;
-        }
-        
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(
-                tabs[0].id,
-                {
-                    action: 'extract',
-                    extractionType: extractionType,
-                    customText: customText
-                },
-                function(response) {
-                    if (response && response.success) {
-                        extractedHTML = response.html;
-                        downloadBtn.disabled = false;
-                        showStatus('Conteúdo extraído com sucesso!', 'success');
-                    } else {
-                        showStatus(response?.error || 'Erro ao extrair conteúdo', 'error');
-                        downloadBtn.disabled = true;
-                    }
-                }
-            );
-        });
-    });
-    
-    // Botão de download
-    downloadBtn.addEventListener('click', function() {
-        if (!extractedHTML) {
-            showStatus('Nenhum conteúdo para baixar', 'error');
-            return;
-        }
-        
-        const blob = new Blob([extractedHTML], { type: 'text/html' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        
-        a.href = url;
-        a.download = `extracao_${new Date().toISOString().slice(0, 10)}.html`;
-        a.click();
-        
-        setTimeout(() => {
-            URL.revokeObjectURL(url);
-        }, 100);
-        
-        showStatus('Arquivo salvo!', 'success');
-    });
-    
-    function showStatus(message, type) {
-        statusDiv.textContent = message;
-        statusDiv.className = 'status ' + type;
-    }
 });

@@ -4,11 +4,14 @@
   "version": "1.0",
   "description": "Extrai conteúdo do JusBrasil contornando o bloqueio do Cloudflare",
   "author": "Ramos de Souza Janones <https://www.linkedin.com/in/ramos-souza/>",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": [
+    "*://*.jusbrasil.com.br/*"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/icon_128x128.png",
+      "16": "images/ icon_16x16.png",
       "48": "images/icon_48x48.png",
       "128": "images/icon_128x128.png"
     }
@@ -16,8 +19,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.jusbrasil.com.br/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_end"
     }
-  ],
-  "_comment": "Desenvolvido por Ramos de Souza Janones. Conecte-se comigo no LinkedIn: https://www.linkedin.com/in/ramos-souza/ — Vamos conversar sobre projetos, colaborações e inovação!"
+  ]
 }
