@@ -10,7 +10,7 @@ A ideia desta extensão nasceu de uma necessidade real: um amigo advogado sempre
 
 Com o tempo, percebi que o JusBrasil impunha bloqueios automatizados, dificultando essa prática. Para melhorar a experiência, desenvolvi primeiro uma página simples, mas ela também foi impactada pelas restrições. A solução definitiva foi criar esta extensão para o Chrome, que além de funcional, serviu como um ótimo exercício de desenvolvimento e está agora disponível aqui como parte do meu portfólio.
 
-Caso tenha dúvidas, precise de funcionalidades adicionais ou queira colaborar, sinta-se à vontade para me chamar no [LinkedIn](https://www.linkedin.com/in/ramos-souza/).
+Caso tenha dúvidas, precise de funcionalidades adicionais ou queira colaborar, sinta-se à vontade para me chamar no <a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">LinkedIn</a>.
 
 ---
 
@@ -42,7 +42,7 @@ Caso tenha dúvidas, precise de funcionalidades adicionais ou queira colaborar, 
 Se você ou alguém que for usar esta extensão nunca instalou uma extensão fora da Chrome Web Store, recomendo este vídeo que explica o processo de forma simples e em português:
 
 📺 **Como instalar uma extensão no Google Chrome: passo a passo**  
-🔗 [Assista no YouTube](https://www.youtube.com/watch?v=3kQ92GUxoRo)
+🔗 <a href="https://www.youtube.com/watch?v=3kQ92GUxoRo" target="_blank">Assista no YouTube</a>
 
 ---
 
@@ -89,14 +89,14 @@ Distribuído sob a **Licença ISC** (Internet Systems Consortium).
 Você pode usar, modificar e distribuir este código livremente, **desde que mantenha os devidos créditos ao desenvolvedor original**:
 
 **Ramos de Souza Janones**  
-[LinkedIn: https://www.linkedin.com/in/ramos-souza/](https://www.linkedin.com/in/ramos-souza/)
+<a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">LinkedIn: https://www.linkedin.com/in/ramos-souza/</a>
 
 ---
 
 ## 💬 Suporte
 
 Encontrou um problema? Tem sugestões ou quer contribuir?  
-Abra uma *issue* aqui no GitHub ou entre em contato diretamente comigo pelo [LinkedIn](https://www.linkedin.com/in/ramos-souza/).  
+Abra uma *issue* aqui no GitHub ou entre em contato diretamente comigo pelo <a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">LinkedIn</a>.  
 Será um prazer colaborar com você!
 
 ---
