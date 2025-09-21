@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévia de Seleção - JusBrasil Extrator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+        
+        .container {
+            padding: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            word-break: break-all;
+        }
+        
+        .preview-section {
+            margin-top: 20px;
+        }
+        
+        .preview-content {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .preview-content * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .preview-content p {
+            margin-bottom: 10px;
+        }
+        
+        .preview-content h1, .preview-content h2, .preview-content h3 {
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+        
+        .export-preview {
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.1);
+        }
+        
+        .export-preview-header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .export-preview-body {
+            padding: 20px;
+        }
+        
+        .export-preview-footer {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #1e7e34;
+        }
+        
+        .status {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .no-selection {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        .no-selection i {
+            font-size: 3em;
+            color: #dee2e6;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            background: #e9ecef;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 0.85em;
+            color: #495057;
+        }
+        
+        .breadcrumb-item {
+            display: inline;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+            content: " > ";
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Prévia de Seleção</h1>
+        <p>Visualize o elemento selecionado antes de extrair</p>
+    </div>
+    
+    <div class="container">
+        <div id="noSelection" class="no-selection">
+            <div>📄</div>
+            <h3>Nenhum elemento selecionado</h3>
+            <p>Ative o modo de seleção no popup e clique em um elemento da página</p>
+        </div>
+        
+        <div id="selectionInfo" style="display: none;">
+            <div class="info-card">
+                <h3>📋 Informações do Elemento</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Tag</div>
+                        <div class="info-value" id="elementTag"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">ID</div>
+                        <div class="info-value" id="elementId"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Classes</div>
+                        <div class="info-value" id="elementClasses"></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Texto (200 chars)</div>
+                        <div class="info-value" id="elementText"></div>
+                    </div>
+                </div>
+                
+                <div class="breadcrumb" id="elementBreadcrumb"></div>
+            </div>
+            
+            <div class="info-card preview-section">
+                <h3>📄 Prévia do Arquivo de Exportação</h3>
+                <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">
+                    Esta é a renderização exata do arquivo HTML que será baixado, com todos os estilos CSS aplicados:
+                </p>
+                <div class="preview-content" id="previewContent"></div>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-success" id="extractBtn">✅ Extrair Conteúdo</button>
+                <button class="btn btn-primary" id="downloadBtn" style="display: none;">💾 Baixar HTML</button>
+                <button class="btn btn-secondary" id="clearBtn">🗑️ Limpar Seleção</button>
+                <button class="btn btn-primary" id="refreshBtn">🔄 Atualizar</button>
+            </div>
+        </div>
+        
+        <div id="status" class="status" style="display: none;"></div>
+    </div>
+    
+    <script src="sidepanel.js"></script>
+</body>
+</html>

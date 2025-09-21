@@ -13,6 +13,7 @@
     <select id="extractionType">
         <option value="inteiroTeor">Inteiro Teor</option>
         <option value="custom">Texto específico</option>
+        <option value="visual">Seleção Visual</option>
         <option value="full">Página completa</option>
     </select>
     
@@ -21,13 +22,17 @@
         <input type="text" id="customText" placeholder="Ex: Decisão, Sentença, etc">
     </div>
     
+    <div id="visualSelectionContainer" style="display: none;">
+        <p>Clique em "Ativar Seleção" e depois clique no elemento que deseja extrair na página. O side panel será aberto automaticamente para mostrar a prévia.</p>
+        <button id="activateSelection">🔍 Ativar Seleção Visual</button>
+        <button id="deactivateSelection" style="display: none;">❌ Desativar Seleção</button>
+    </div>
+    
     <button id="extractBtn">Extrair Conteúdo</button>
     <button id="downloadBtn">Baixar HTML</button>
     
     <div id="status" class="status"></div>
     
-    <script src="popup.js"></script>
-
     <footer>
         Desenvolvido por <a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">Ramos de Souza Janones</a><br>
         Vamos nos conectar e conversar sobre tecnologia!
