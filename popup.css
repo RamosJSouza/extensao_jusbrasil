@@ -1,0 +1,39 @@
+/* ... existing styles ... */
+
+#visualSelectionContainer {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+#visualSelectionContainer p {
+    margin: 0 0 10px 0;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+#activateSelection, #deactivateSelection {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#activateSelection:hover, #deactivateSelection:hover {
+    background-color: #218838;
+}
+
+#deactivateSelection {
+    background-color: #dc3545;
+}
+
+#deactivateSelection:hover {
+    background-color: #c82333;
+}
+
+/* Estilos removidos - agora usamos side panel para prévia */

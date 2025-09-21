@@ -1,104 +1,224 @@
-# JusBrasil Extrator
+# 🔍 JusBrasil Extrator
 
-Extensão para Google Chrome que permite extrair conteúdo jurídico do site JusBrasil, mesmo contornando as restrições aplicadas por mecanismos como o Cloudflare. Ideal para advogados, estudantes de Direito ou qualquer pessoa que precise acessar e salvar informações jurídicas de forma prática e rápida.
+Uma extensão do Chrome que permite extrair conteúdo de páginas do JusBrasil de forma inteligente e eficiente, contornando bloqueios e oferecendo múltiplas opções de extração.
 
----
+## ✨ Recursos Principais
 
-## 📖 História do Projeto
+### 🎯 **Extração "Inteiro Teor"**
+- Extrai automaticamente o conteúdo completo do "Inteiro Teor" de documentos jurídicos
+- Busca inteligente por containers de conteúdo com mais de 2000 caracteres
+- Fallback automático para garantir que sempre extraia conteúdo relevante
 
-A ideia desta extensão nasceu de uma necessidade real: um amigo advogado sempre precisava extrair decisões e trechos de processos do site JusBrasil para colar no Word e trabalhar com mais agilidade. Inicialmente, eu o ajudava com pequenos scripts JavaScript executados manualmente no console do navegador.
+### 🖱️ **Seleção Visual Interativa**
+- Modo de seleção visual que permite escolher elementos específicos da página
+- Highlight visual com tooltip informativo mostrando detalhes do elemento
+- Busca automática do container de conteúdo principal relacionado
+- Instruções visuais claras durante a seleção
 
-Com o tempo, percebi que o JusBrasil impunha bloqueios automatizados, dificultando essa prática. Para melhorar a experiência, desenvolvi primeiro uma página simples, mas ela também foi impactada pelas restrições. A solução definitiva foi criar esta extensão para o Chrome, que além de funcional, serviu como um ótimo exercício de desenvolvimento e está agora disponível aqui como parte do meu portfólio.
+### 🔍 **Busca Personalizada**
+- Busca por texto específico em toda a página
+- Suporte a múltiplos seletores CSS
+- Busca inteligente por classes, IDs e conteúdo textual
 
-Caso tenha dúvidas, precise de funcionalidades adicionais ou queira colaborar, sinta-se à vontade para me chamar no <a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">LinkedIn</a>.
+### 📄 **Prévia em Tempo Real**
+- Side panel com prévia exata do arquivo HTML que será exportado
+- Renderização completa com estilos CSS aplicados
+- Visualização do conteúdo antes do download
 
----
+### 💾 **Download Automático e Manual**
+- Download automático após extração bem-sucedida
+- Botão de download manual no side panel
+- Arquivos HTML limpos e organizados
+- Nomenclatura automática com data
 
-## 🚀 Instalação
+### 🧹 **Limpeza Inteligente de Conteúdo**
+- Remoção automática de ícones, imagens e elementos visuais desnecessários
+- Limpeza de anúncios, banners e elementos de interface
+- Remoção de scripts, estilos e elementos de navegação
+- Preservação apenas do conteúdo textual relevante
 
-1. Faça o download ou clone este repositório.
-2. Acesse `chrome://extensions` no navegador Chrome.
-3. Ative o **Modo do desenvolvedor** (canto superior direito).
-4. Clique em **"Carregar sem compactação"**.
-5. Selecione a pasta onde salvou este projeto.
+## 🚀 Como Usar
 
----
+### 1. **Extração "Inteiro Teor"**
+1. Acesse uma página do JusBrasil com documento jurídico
+2. Clique no ícone da extensão
+3. Selecione "Inteiro Teor" no dropdown
+4. Clique em "Extrair Conteúdo"
+5. O arquivo HTML será baixado automaticamente
 
-## 🧠 Como Usar
+### 2. **Seleção Visual**
+1. Clique no ícone da extensão
+2. Selecione "Seleção Visual" no dropdown
+3. Clique em "Ativar Seleção Visual"
+4. Passe o mouse sobre os elementos da página
+5. Clique no elemento desejado
+6. O side panel abrirá com a prévia
+7. Clique em "Extrair Conteúdo" para baixar
 
-1. Acesse uma página do JusBrasil que contenha o conteúdo desejado.
-2. Clique no ícone da extensão na barra do navegador.
-3. Escolha o tipo de extração:
-   - **Inteiro Teor**: Extrai apenas o conteúdo principal do processo.
-   - **Texto específico**: Busca e extrai um trecho de acordo com o termo informado.
-   - **Página completa**: Extrai o HTML completo da página atual.
-4. Clique em **"Extrair Conteúdo"**.
-5. Após a extração, clique em **"Baixar HTML"** para salvar o conteúdo localmente.
+### 3. **Busca Personalizada**
+1. Selecione "Busca Personalizada" no dropdown
+2. Digite o texto que deseja buscar
+3. Clique em "Extrair Conteúdo"
+4. O arquivo será baixado automaticamente
 
----
+## 🛠️ Instalação
 
-## 🧩 Tutorial de Instalação para Leigos
+### **Instalação Manual (Desenvolvedor)**
+1. Baixe ou clone este repositório
+2. Abra o Chrome e vá para `chrome://extensions/`
+3. Ative o "Modo do desenvolvedor"
+4. Clique em "Carregar sem compactação"
+5. Selecione a pasta da extensão
+6. A extensão estará disponível na barra de ferramentas
 
-Se você ou alguém que for usar esta extensão nunca instalou uma extensão fora da Chrome Web Store, recomendo este vídeo que explica o processo de forma simples e em português:
+### **Permissões Necessárias**
+- `activeTab` - Para acessar a aba ativa
+- `storage` - Para salvar configurações e dados temporários
+- `scripting` - Para injetar scripts na página
+- `sidePanel` - Para exibir o painel lateral
+- `*://*.jusbrasil.com.br/*` - Para funcionar apenas no JusBrasil
 
-📺 **Como instalar uma extensão no Google Chrome: passo a passo**  
-🔗 <a href="https://www.youtube.com/watch?v=3kQ92GUxoRo" target="_blank">Assista no YouTube</a>
-
----
-
-## 📢 Aviso Importante: Publicação na Chrome Web Store
-
-Caso você deseje ou tenha intenção de publicar esta extensão na **Chrome Web Store** ou em qualquer outra loja de navegadores, **por favor, me avise antes da publicação**.
-
-Isso ajuda a:
-
-- **Divulgar oficialmente** a extensão nas minhas redes;
-- **Manter o controle de qualidade** e atualizações da versão pública;
-- **Garantir os créditos adequados** ao projeto original.
-
-**Desenvolvedor:** Ramos de Souza Janones  
-🔗 [LinkedIn](https://www.linkedin.com/in/ramos-souza/)
-
-Sua colaboração e iniciativa são muito bem-vindas. Vamos construir algo incrível juntos!
-
-...
-
-## Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
 ```
 extensao_jusbrasil/
-├── manifest.json      # Configuração da extensão
-├── popup.html        # Interface da extensão
-├── popup.js         # Lógica da interface
-├── content.js       # Script que interage com a página
-├── styles/
-│   └── popup.css    # Estilos da interface
-└── images/          # Ícones da extensão
+├── manifest.json          # Configuração da extensão
+├── background.js          # Service Worker principal
+├── content.js             # Content Script para extração
+├── popup.html             # Interface do popup
+├── popup.js               # Lógica do popup
+├── popup.css              # Estilos do popup
+├── sidepanel.html         # Interface do side panel
+├── sidepanel.js           # Lógica do side panel
+└── images/                # Ícones da extensão
     ├── icon_16x16.png
     ├── icon_48x48.png
     └── icon_128x128.png
 ```
 
+## 🔧 Funcionalidades Técnicas
 
----
+### **Extração Inteligente**
+- Busca por múltiplos termos relacionados ao "Inteiro Teor"
+- Análise de estrutura de documento (parágrafos, títulos, etc.)
+- Verificação de classes e IDs relacionados a conteúdo
+- Fallback para `document.body` quando necessário
+
+### **Seleção Visual Avançada**
+- Overlay semi-transparente para seleção
+- Tooltip informativo com detalhes do elemento
+- Busca ascendente por containers de conteúdo
+- Suporte a XPath para localização precisa
+
+### **Limpeza de Conteúdo**
+- Remoção de 40+ tipos de elementos desnecessários
+- Limpeza de ícones, imagens e elementos visuais
+- Remoção de anúncios e elementos de interface
+- Preservação da estrutura textual relevante
+
+### **Interface Responsiva**
+- Side panel com prévia em tempo real
+- Botões de ação intuitivos
+- Feedback visual claro
+- Instruções contextuais
+
+## 📊 Recursos de Exportação
+
+### **Formato HTML Limpo**
+- Estrutura HTML5 semântica
+- Estilos CSS inline para portabilidade
+- Cabeçalho com informações da página
+- Rodapé com data de extração
+- URL da página original
+
+### **Nomenclatura Automática**
+- `extracao_jusbrasil_YYYY-MM-DD.html`
+- Data baseada no momento da extração
+- Nomes únicos para evitar sobrescrita
+
+## 🎯 Casos de Uso
+
+### **Advogados e Juristas**
+- Extração de jurisprudências completas
+- Coleta de decisões judiciais
+- Análise de precedentes
+- Pesquisa jurídica eficiente
+
+### **Estudantes de Direito**
+- Coleta de material de estudo
+- Extração de casos práticos
+- Análise de decisões judiciais
+- Pesquisa acadêmica
+
+### **Pesquisadores**
+- Coleta de dados jurídicos
+- Análise de tendências judiciais
+- Estudos comparativos
+- Pesquisa empírica
+
+## 🔒 Segurança e Privacidade
+
+- **Funciona apenas no JusBrasil** - Não acessa outros sites
+- **Dados locais** - Informações salvas apenas localmente
+- **Sem coleta de dados** - Não envia informações para servidores externos
+- **Código aberto** - Transparência total do funcionamento
+
+## 🐛 Solução de Problemas
+
+### **Extensão não funciona**
+1. Verifique se está em uma página do JusBrasil
+2. Recarregue a página
+3. Verifique se a extensão está ativada
+4. Tente desativar e reativar a extensão
+
+### **Conteúdo não é extraído**
+1. Verifique se a página carregou completamente
+2. Tente usar a seleção visual
+3. Verifique se há conteúdo na página
+4. Tente recarregar a página
+
+### **Download não funciona**
+1. Verifique as configurações de download do Chrome
+2. Tente usar o botão de download manual
+3. Verifique se há espaço em disco
+4. Tente em uma aba privada
+
+## 📝 Changelog
+
+### **v1.0.0** - Versão Inicial
+- ✅ Extração "Inteiro Teor" básica
+- ✅ Seleção visual interativa
+- ✅ Busca personalizada
+- ✅ Download automático
+- ✅ Limpeza de conteúdo
+- ✅ Side panel com prévia
+- ✅ Interface responsiva
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature
+3. Faça commit das mudanças
+4. Abra um Pull Request
 
 ## 📄 Licença
 
-Distribuído sob a **Licença ISC** (Internet Systems Consortium).
+Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-Você pode usar, modificar e distribuir este código livremente, **desde que mantenha os devidos créditos ao desenvolvedor original**:
+## 👨‍💻 Autor
 
-**Ramos de Souza Janones**  
-<a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">LinkedIn: https://www.linkedin.com/in/ramos-souza/</a>
+**Ramos de Souza Janones**
+- LinkedIn: [https://www.linkedin.com/in/ramos-souza/](https://www.linkedin.com/in/ramos-souza/)
+- Email: [seu-email@exemplo.com]
+
+## 🙏 Agradecimentos
+
+- Comunidade do JusBrasil pela disponibilização do conteúdo
+- Desenvolvedores da Chrome Extension API
+- Comunidade open source por inspiração e ferramentas
 
 ---
 
-## 💬 Suporte
-
-Encontrou um problema? Tem sugestões ou quer contribuir?  
-Abra uma *issue* aqui no GitHub ou entre em contato diretamente comigo pelo <a href="https://www.linkedin.com/in/ramos-souza/" target="_blank">LinkedIn</a>.  
-Será um prazer colaborar com você!
-
----
-
-
+**⚠️ Aviso Legal:** Esta extensão é para fins educacionais e de pesquisa. Respeite os termos de uso do JusBrasil e as leis de propriedade intelectual.
